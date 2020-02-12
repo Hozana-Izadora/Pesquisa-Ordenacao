@@ -56,5 +56,5 @@ for i in range(len(x)):
     tempo_ord.append(timeit.timeit("selection_sort({})".format(y[i]), setup="from __main__ import selection_sort", number=1))
     tempo_des.append(timeit.timeit("selection_sort({})".format(y_des[i]), setup="from __main__ import selection_sort", number=1))
 
-plot_grafico(x, tempo_ord, tempo_des, "Tempo.png", "Tempo Embaralhado", "Tempo Invertido")
-plot_grafico(x, count_ord, count_des, "Interacoes.png", "Numero de Interacoes Embaralhado", "Numero de Interacoes Invertido")
+plot_grafico(x, tempo_ord, tempo_des, "Time.png", "Tempo Aleatório", "Tempo Invertido")
+plot_grafico(x, count_ord, count_des, "Interations.png", "Numero de Interacoes aleátorio", "Numero de Interacoes Invertido")
