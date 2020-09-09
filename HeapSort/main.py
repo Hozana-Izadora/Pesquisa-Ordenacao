@@ -13,43 +13,38 @@ plt.style.use('ggplot')
 sys.setrecursionlimit(10**7) 
 
 
-
-
-
-
-def heapSort(a):  
+def heapify(arr, n, i): 
+    largest = i   
+    l = 2 * i + 1     
+    r = 2 * i + 2      
   
-    def swap(a,i,j):  
-        tmp = a[i]  
-        a[i] = a[j]  
-        a[j] = tmp    
-          
-    def siftdown(a, i, size):  
-        l = 2*i+1  
-        r = 2*i+2  
-        largest = i  
-        if l <= size-1 and a[l] > a[i]:  
-            largest = l  
-        if r <= size-1 and a[r] > a[largest]:  
-            largest = r  
-        if largest != i:  
-            swap(a, i, largest)  
-            siftdown(a, largest, size)  
-              
-    def heapify(a, size):  
-        p = (size//2)-1  
-        while p>=0:  
-            siftdown(a, p, size)  
-            p -= 1  
-              
-    size = len(a)          
-    heapify(a, size)  
-    end = size-1  
-    while(end > 0):  
-        swap(a, 0, end)  
-        siftdown(a, 0, end)  
-        end -= 1
+   
+    if l < n and arr[i] < arr[l]: 
+        largest = l 
+  
+   
+    if r < n and arr[largest] < arr[r]: 
+        largest = r 
+  
+    
+    if largest != i: 
+        arr[i],arr[largest] = arr[largest],arr[i]  # swap 
+  
         
+        heapify(arr, n, largest) 
+  
+
+def heapSort(arr): 
+    n = len(arr) 
+  
+   
+    for i in range(n // 2 - 1, -1, -1): 
+        heapify(arr, n, i) 
+
+    for i in range(n-1, 0, -1): 
+        arr[i], arr[0] = arr[0], arr[i]   # swap 
+        heapify(arr, i, 0) 
+  
         
         
 def drawGraph(x,y,yInv,XAxis = "Lista de Numeros", YAxis = "Tempo de ordenação", name =" Tempo de ordenação em seg"):
