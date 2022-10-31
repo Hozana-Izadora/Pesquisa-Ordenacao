@@ -2,6 +2,7 @@ import timeit
 from random import randint
 import matplotlib.pyplot as plt
 
+# Gerador de lista com base no tamanho recebido
 def geraLista(tam):
     lista = []
     while len(lista) < tam:
@@ -9,6 +10,7 @@ def geraLista(tam):
         if n not in lista: lista.append(n)
     return lista
 
+# Plot de grafico
 def geraGraf(x,BSort,xl = "Entradas", yl = "loops",nam="img"):
     fig = plt.figure(figsize=(10, 13))
     ax = fig.add_subplot(111)
@@ -18,6 +20,7 @@ def geraGraf(x,BSort,xl = "Entradas", yl = "loops",nam="img"):
     plt.xlabel(xl)
     plt.savefig(nam)
 
+# Bubblesort -> Rearranjo -> Comparação de valores e modificação da posição dos elementos
 def bubbleSort(array):
     count = 0
     n = len(array)
